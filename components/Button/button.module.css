@@ -1,0 +1,15 @@
+.button {
+  cursor: pointer;
+  position: relative;
+  border-radius: var(--border-radius);
+  padding: 0.75em;
+  transition: filter 0.15s ease-in-out;
+}
+
+.button:hover {
+  filter: brightness(0.8);
+}
+
+.button:active {
+  filter: brightness(0.5);
+}

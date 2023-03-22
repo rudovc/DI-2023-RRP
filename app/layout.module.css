@@ -1,0 +1,8 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  background-color: var(--color-secondary);
+  gap: 20px;
+}
