@@ -1,4 +1,6 @@
-import Colors, { Color } from '@/config/Colors';
+'use client';
+
+import Colors, { Color } from '@/shared/config/Colors';
 
 import styles from './button.module.css';
 
@@ -17,21 +19,33 @@ type WithDivProps = {
 >;
 
 interface CommonButtonProps {
+  disabled?: boolean;
   color?: Color;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
 }
 
 type ButtonProps = CommonButtonProps & (WithButtonProps | WithDivProps);
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  disabled,
+  color,
+  className = '',
+  ...props
+}) => {
+  const classes = `${styles.button} ${
+    disabled ? styles.disabled : ''
+  } ${className}`;
+
   if (props.component === 'div') {
-    const { color, style } = props;
+    const { style } = props;
 
     return (
       <div
-        className={styles.button}
+        className={classes}
         style={{
-          backgroundColor: (color && Colors[color]) || Colors.background,
+          backgroundColor: (color && Colors[color]) || Colors.paper,
           ...style,
         }}
         {...props}
@@ -41,14 +55,14 @@ const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
     );
   }
 
-  const { type, color, style } = props;
+  const { type, style } = props;
 
   return (
     <button
       type={type || 'button'}
-      className={styles.button}
+      className={classes}
       style={{
-        backgroundColor: (color && Colors[color]) || Colors.background,
+        backgroundColor: (color && Colors[color]) || Colors.paper,
         ...style,
       }}
       {...props}

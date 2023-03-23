@@ -1,0 +1,23 @@
+.article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.date {
+  margin-top: 1em;
+  font-size: 0.75em;
+}
+
+.byline,
+.url {
+  opacity: 0.8;
+  font-size: 0.875em;
+  color: var(--color-secondary);
+}

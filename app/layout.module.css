@@ -3,6 +3,6 @@
   justify-content: center;
   align-items: center;
   min-height: 60px;
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   gap: 20px;
 }
